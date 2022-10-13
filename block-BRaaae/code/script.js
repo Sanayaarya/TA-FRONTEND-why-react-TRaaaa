@@ -1,60 +1,48 @@
-let uLRoot = document.querySelector(".todos");
-let todoInput = document.querySelector(`input[type="text"]`)
 
-let all = document.querySelector(".all")
-let active = document.querySelector(".active");
-let completed = document.querySelector("completed")
-let clear = document.querySelector(".clear")
 
-let activeButton = "all";
+let input = document.querySelector(`.input`);
+let rootElm = document.querySelector('.movies_list');
 
-let allTodos = localStorage.getItem("allTodos")
-    ? JSON.parse(localStorage.getItem("allTodos"))
-    :[]
+let allMovies = [
+  { name: 'Forest Gump', watched: false },
+  { name: 'Inception', watched: false },
+];
 
-    function addTodo(event){
-      if(event.keyCode === 13 && event.target.value){
-       allTodos.push({
-        name:event.target.value,
-        isDone:false,
-       })
-        event.target.value="";
-        createUI();
-        localStorage.setItem("allTodos",JSON.stringify(allTodos))
-      }
-    }
-    function handleCheck(event){
-      if(event.target.classList.contains("check")){
-        let id = event.target.dataset.id;
-        
-        allTodos[id].isDone = !allTodos[id].isDone;
-        createUI();
-        localStorage.setItem("allTodos",JSON ,stringify(allTodos))
-      }
-    }
+input.addEventListener('keyup', (event) => {
+  if (event.keyCode === 13) {
+    allMovies.push({
+      name: event.target.value,
+      watched: false,
+    });
+    event.target.value = '';
+    createMovieUI(allMovies, rootElm);
+  }
+});
 
-    function createUI(data = allTodos){
-      let todoUI=data.map((todo,i)=>{
-        let li = React.createElement(
-          "li",
-          {},
-          React.createElement("input",{
-            type:"checkbox",
-            className:"check",
-            checked: todo.isDone,
-            "data-id":i,
-          }),
-          React.createElement("p",{},todo.name),
-          React.createElement("span",
-          {
-            className:"delete",
-            "data-id":i
-          },
-          "❌"
-        ) 
-      );
-      return li;
-      
-      })
-      ReactDom.render(todoUI,ulRoot); 
-    }
+function handleChange(event) {
+  let id = event.target.id;
+  allMovies[id].watched = !allMovies[id].watched;
+  createMovieUI(allMovies, rootElm);
+}
+
+
+function createMovieUI(data, root) {
+  //   root.innerHTML = '';
+  let movieUI = data.map((movie, i) => {
+    let li = React.createElement(
+      'li',
+      null,
+      React.createElement('label', { for: i }, movie.name),
+      React.createElement(
+        'button',
+        { id: i, onClick: handleChange },
+        movie.watched ? 'Watched' : 'To Watch'
+      )
+    );
+    // rootElm.append(li);
+    return li;
+  });
+  ReactDOM.render(movieUI, rootElm);
+}
+
+createMovieUI(allMovies, rootElm);
