@@ -1,5 +1,3 @@
-
-
 let input = document.querySelector(`.input`);
 let rootElm = document.querySelector('.movies_list');
 
@@ -25,10 +23,33 @@ function handleChange(event) {
   createMovieUI(allMovies, rootElm);
 }
 
+// function elm(type, attr = {}, ...children) {
+//   let element = document.createElement(type);
+//   for (let key in attr) {
+//     if (key.startsWith('data-')) {
+//       element.setAttribute(key, attr[key]);
+//     } else if (key.startsWith('on')) {
+//       let eventType = key.replace('on', '').toLowerCase();
+//       element.addEventListener(eventType, attr[key]);
+//     } else {
+//       element[key] = attr[key];
+//     }
+//   }
+
+//   children.forEach((child) => {
+//     if (typeof child === 'object') {
+//       element.append(child);
+//     }
+//     if (typeof child === 'string') {
+//       let node = document.createTextNode(child);
+//       element.append(child);
+//     }
+//   });
+//   return element;
+// }
 
 function createMovieUI(data, root) {
-  //   root.innerHTML = '';
-  let movieUI = data.map((movie, i) => {
+  let ui = data.map((movie, i) => {
     let li = React.createElement(
       'li',
       null,
@@ -39,10 +60,9 @@ function createMovieUI(data, root) {
         movie.watched ? 'Watched' : 'To Watch'
       )
     );
-    // rootElm.append(li);
     return li;
   });
-  ReactDOM.render(movieUI, rootElm);
+  ReactDom.render(ui, root);
 }
 
 createMovieUI(allMovies, rootElm);
