@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Movie List</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+      let card = (
+        <>
+          <img className="image" src={cardInfo.imageURL} alt="" />
+          <div className="category">{cardInfo.category.toUpperCase()}</div>
+          <div className="date">
+            {cardInfo.date.getDate()}
+            <small>
+              {cardInfo.date
+                .toLocaleString('default', { month: 'long' })
+                .slice(0, 3).toUpperCase()}
+            </small>
+          </div>
+          <h1>{cardInfo.title}</h1>
+          <strong>{cardInfo.subTitle}</strong>
+          <p>{cardInfo.description}</p>
+          <div>
+            <span>
+              <i className="far fa-clock">6 mins ago</i>{' '}
+            </span>
+            <span>
+              <i class="fas fa-comments"></i>
+              {cardInfo.comments} comments
+            </span>
+          </div>
+        </>
+      );
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="data.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link  rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d95544a3bc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="root"> </div>
+    <script type="text/babel">
+        let article =  (<div className="hero relative">
+        <img src="https://images.unsplash.com/photo-1610874933184-7728fd666162?ixid=MXwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt=""/>
+        <div className="date">
+        <span >
+            {cardInfo.date.getDate()} <br/> 
+            <small>{cardInfo.date.toLocaleString('default', { month: 'long' }).slice(0,3)}</small>
+            </span>
+        </div>
+        <div className="category">
+            {cardInfo.category}
+        </div>
+        <article>
+            <h1>{cardInfo.title}</h1>
+            <h2>{cardInfo.subTitle}</h2>
+            <p>{cardInfo.description}</p>
+            <div className="comment"><span>6 mins ago</span><small><i class="fas fa-comments"></i> {cardInfo.comments} commentZ</small></div>
+        </article>
+    </div> )
+        ReactDOM.render(article, document.getElementById("root"))
+    </script>
+</body>
+</html>
