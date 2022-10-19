@@ -1,0 +1,33 @@
+
+#root {
+  color: rgb(128, 91, 214);
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0rem 8rem;
+}
+
+.wrapper {
+  width: 40%;
+  border: 1px solid black;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li {
+  list-style: none;
+  margin-right: 3rem;
+}
+
+.flex {
+  display: flex;
+}
