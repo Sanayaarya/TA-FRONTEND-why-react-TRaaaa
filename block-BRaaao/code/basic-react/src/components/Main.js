@@ -7,7 +7,7 @@ function Main() {
                 return <Card key={article.title} {...article} />
             })}
         </div>
-    );
+    )
 }
 
 function Card(props) {
