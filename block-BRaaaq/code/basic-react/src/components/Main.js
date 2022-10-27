@@ -8,7 +8,7 @@ function Main (){
                 return <Card key={article.title} info={article} />
             })}
         </div>
-    )
+    );
 }
 
 export default Main;
