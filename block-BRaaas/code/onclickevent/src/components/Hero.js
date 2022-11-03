@@ -1,5 +1,3 @@
-
-
 function handleClick() {
   return alert('Hello React Event');
 }
@@ -15,7 +13,7 @@ function Hero() {
               </button>
           </section>
       </>
-  );
+  )
 }
 
 export default Hero;
