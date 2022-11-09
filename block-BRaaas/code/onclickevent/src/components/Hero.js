@@ -13,7 +13,7 @@ function Hero() {
               </button>
           </section>
       </>
-  );
+  )
 }
 
 export default Hero;
